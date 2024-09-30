@@ -1,31 +1,49 @@
-<?php
+<?php 
+
+    //Declarar arrays de dados como variáveis de escopo global
+    define("notas", array(6, 8, 10, 7));
+    define("aulas", array(0, 1, 0, 0, 1, 0, 0, 1, 0, 0));
     
-    #array para notas
-    $notasArr =  array(1,7,3,6,8);
-    #array para faltas
-    $faltasArr = array(1,0,0,0,0,1,1,1,0,0);
-    #func para media
-    function CalcMedia ($notasArr) {
-        $media = 0;
-        for ($i = 0; $i < count(value: $notasArr); $i++){
-            $media += $notasArr[$i];            
-        };
-        $media = $media / count(value: $notasArr);
-        return $media;    
+    function calculaMediaNotas() {
+        $somaNotas = 0;
+        for($i = 0; $i < count(notas); $i++) {
+            $somaNotas += notas[$i];
+        }
+        $mediaNotas = $somaNotas / count(notas);
+        return $mediaNotas;
     }
 
-    #func para aprovação acima d e7
-    function Calcfreq(){
-
-    }
-    #func para aprovação por frequencia
-    function CalcAprvFreq(){
-
+    function verificaStatusNotas($mediaNotas) {
+        if($mediaNotas >= 7) {
+            return "Aprovado";
+        }
+        return "Reprovado";
     }
 
-    #exibe mensagem
-    function exibeMensagem(){
-        
+    function calculaFrequencia() {
+        $somaFrequencia = 0;
+        for($i = 0; $i < count(aulas); $i++) {
+            $somaFrequencia += aulas[$i];
+        }
+        $frequencia = 100 - (($somaFrequencia * 100) / $i);
+        return $frequencia;
     }
 
-?>
+    function verificaStatusFrequencia($frequencia){
+        if($frequencia >= 70) {
+            return "Aprovado";
+        }
+        return "Reprovado";
+    }
+
+    function exibeMensagem($mensagem) {
+        echo $mensagem;
+    }
+
+    $mediaNotas = calculaMediaNotas();
+    $frequencia = calculaFrequencia();
+
+    exibeMensagem("Média de Notas: " . $mediaNotas . "<br>" .
+                  "Status Nota: " . verificaStatusNotas($mediaNotas) . "<br>" . 
+                  "Frequencia: " . $frequencia . "<br>" .
+                  "Status Frequencia: " . verificaStatusFrequencia($frequencia) . "<br>");
