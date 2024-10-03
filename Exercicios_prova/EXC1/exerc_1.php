@@ -20,4 +20,3 @@ function CalculaValor($valor1, $valor2, $valor3, &$cor){
 }
 $resultado = CalculaValor($valor1, $valor2, $valor3, $cor);
 echo "<div style='color: $cor;'>Resultado: $resultado</div>";
-?>
