@@ -9,8 +9,6 @@ $base = 10;
 $altura = 5;
 ?>
 
-
-
 <!DOCTYPE html>
 <html>
 <head>
