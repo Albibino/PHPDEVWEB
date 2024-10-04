@@ -17,7 +17,7 @@
     $resultado_60 = calcular_parcela($valor_vista, $taxa_inicial + 3 * $aumento_taxa, 60);
 
     echo "<p>Valor à vista da moto: R$ " . number_format($valor_vista, 2, ',', '.') . "</p>";
-    echo "<h4>Opções de Parcelamento:</h4>";
+    echo "<h4>Opções:</h4>";
     echo "<p>24 parcelas de R$ " . number_format($resultado_24['parcela'], 2, ',', '.') . " com juros de 1,5%<br>";
     echo "Valor total a ser pago: R$ " . number_format($resultado_24['montante'], 2, ',', '.') . "</p>";
     echo "<p>36 parcelas de R$ " . number_format($resultado_36['parcela'], 2, ',', '.') . " com juros de 2,0%<br>";
