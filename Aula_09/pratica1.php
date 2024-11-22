@@ -1,36 +1,34 @@
 <?php 
-
-    //Declarar arrays de dados como variáveis de escopo global
     define("notas", array(6, 8, 10, 7));
     define("aulas", array(0, 1, 0, 0, 1, 0, 0, 1, 0, 0));
     
-    function calculaMediaNotas() {
+    function calcMediaNotas() {
         $somaNotas = 0;
         for($i = 0; $i < count(notas); $i++) {
             $somaNotas += notas[$i];
         }
-        $mediaNotas = $somaNotas / count(notas);
-        return $mediaNotas;
+        $medNotas = $somaNotas / count(notas);
+        return $medNotas;
     }
 
-    function verificaStatusNotas($mediaNotas) {
-        if($mediaNotas >= 7) {
+    function verifStatusNotas($medNotas) {
+        if($medNotas >= 7) {
             return "Aprovado";
         }
         return "Reprovado";
     }
 
-    function calculaFrequencia() {
+    function calcFrequencia() {
         $somaFrequencia = 0;
         for($i = 0; $i < count(aulas); $i++) {
             $somaFrequencia += aulas[$i];
         }
-        $frequencia = 100 - (($somaFrequencia * 100) / $i);
-        return $frequencia;
+        $freq = 100 - (($somaFrequencia * 100) / $i);
+        return $freq;
     }
 
-    function verificaStatusFrequencia($frequencia){
-        if($frequencia >= 70) {
+    function verifStatusFreq($freq){
+        if($freq >= 70) {
             return "Aprovado";
         }
         return "Reprovado";
@@ -40,10 +38,10 @@
         echo $mensagem;
     }
 
-    $mediaNotas = calculaMediaNotas();
-    $frequencia = calculaFrequencia();
+    $medNotas = calcMediaNotas();
+    $freq = calcFrequencia();
 
-    exibeMensagem("Média de Notas: " . $mediaNotas . "<br>" .
-                  "Status Nota: " . verificaStatusNotas($mediaNotas) . "<br>" . 
-                  "Frequencia: " . $frequencia . "<br>" .
-                  "Status Frequencia: " . verificaStatusFrequencia($frequencia) . "<br>");
+    exibeMensagem("Média de Notas: " . $medNotas . "<br>" .
+                  "Status Nota: " . verifStatusNotas($medNotas) . "<br>" . 
+                  "Frequencia: " . $freq . "<br>" .
+                  "Status Frequencia: " . verifStatusFreq($freq) . "<br>");

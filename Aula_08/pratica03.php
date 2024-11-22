@@ -6,7 +6,6 @@
     $salario2 +=1;
     $salario1 *= 1.1;
     
-    // echo "Valor do salario 1: ".$salario1,"<br>", "Valor do salario 2: ".$salario2;
 
     if ($salario1 > $salario2) {
         echo "O Valor do salario 1 é maior que o salario 2";
